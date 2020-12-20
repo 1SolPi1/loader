@@ -32,8 +32,4 @@ jobs:
         run: npm run build
 
       - name: Push and send notification
-          run: |
-            COMMIT_MESSAGE="Update pages on $(date +'%Y-%m-%d %H:%M:%S')"
-            git diff-index --quiet --cached HEAD -- && echo "No changes!" && exit 0 || echo $COMMIT_MESSAGE
-            git commit -m "${COMMIT_MESSAGE}"
-            git push https://${{ secrets.ACCESS_TOKEN }}@github.com/${GITHUB_ACTOR}/${GITHUB_ACTOR}.github.io.git gh-pages
+          run: git push https://${{ secrets.ACCESS_TOKEN }}@github.com/${GITHUB_ACTOR}/${GITHUB_ACTOR}.github.io.git gh-pages
