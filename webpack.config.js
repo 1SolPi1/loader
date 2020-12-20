@@ -10,12 +10,12 @@ module.exports = {
         ]
     },
     output: {
-        path: path.resolve(__dirname, 'dist'),
+        path: path.resolve(__dirname, '.'),
         filename: 'index_bundle.js'
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: 'index.html'
+            template: 'template/index.html'
         })
     ]
 }
