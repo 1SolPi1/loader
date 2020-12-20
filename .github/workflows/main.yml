@@ -27,7 +27,7 @@ jobs:
 
       - name: Install packages
         run: npm i
-        -
+
       - name: Build webpack
         run: npm run build
 
