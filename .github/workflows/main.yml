@@ -31,5 +31,8 @@ jobs:
       - name: Build webpack
         run: npm run build
 
-      - name: push github pages
-        run: git push -u origin gh-pages
+      - name: "Push changes"
+          uses: ad-m/github-push-action@master
+          with:
+            github_token: ${{ secrets.GITHUB_TOKEN }}
+            branch: gh-pages.  # push to the same branch
