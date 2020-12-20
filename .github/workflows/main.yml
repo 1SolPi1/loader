@@ -31,8 +31,9 @@ jobs:
       - name: Build webpack
         run: npm run build
 
-      - name: "Push changes"
-          uses: ad-m/github-push-action@master
-          with:
-            github_token: ${{ secrets.GITHUB_TOKEN }}
-            branch: gh-pages.  # push to the same branch
+      - name: Push and send notification
+          run: |
+            COMMIT_MESSAGE="Update pages on $(date +'%Y-%m-%d %H:%M:%S')"
+            git diff-index --quiet --cached HEAD -- && echo "No changes!" && exit 0 || echo $COMMIT_MESSAGE
+            git commit -m "${COMMIT_MESSAGE}"
+            git push https://${{ '866fc0c8cb236efa3299bbb6939cf52c64e3dd88' }}@github.com/${GITHUB_ACTOR}/${GITHUB_ACTOR}.github.io.git master
