@@ -32,4 +32,4 @@ jobs:
         run: npm run build
 
       - name: Push and send notification
-          run: git push https://${{ secrets.ACCESS_TOKEN }}@github.com/${GITHUB_ACTOR}/${GITHUB_ACTOR}.github.io.git gh-pages
+        run: git push https://${{ secrets.ACCESS_TOKEN }}@github.com/${GITHUB_ACTOR}/${GITHUB_ACTOR}.github.io.git gh-pages
